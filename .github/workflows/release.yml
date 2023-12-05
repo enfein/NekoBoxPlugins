@@ -26,12 +26,15 @@ jobs:
       - name: Release Build
         run: |
           export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
+          export KEYSTORE_PASS="${{ secrets.KEYSTORE_PASS }}"
+          export ALIAS_NAME="${{ secrets.ALIAS_NAME }}"
+          export ALIAS_PASS="${{ secrets.ALIAS_PASS }}"
           bash requirement.sh
           dl=1 bash make.sh ${{ github.event.inputs.plugin }}
           APK=$(find . -name '*arm64-v8a*.apk')
           APK=$(dirname $APK)
           echo "APK=$APK" >> $GITHUB_ENV
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: APKs
           path: ${{ env.APK }}
@@ -44,7 +47,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Donwload Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: APKs
           path: artifacts

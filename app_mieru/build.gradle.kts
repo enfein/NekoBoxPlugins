@@ -12,7 +12,7 @@ android {
         versionName = "2.2.0"
         splits.abi {
             reset()
-            include("arm64-v8a", "x86_64")
+            include("arm64-v8a")
         }
     }
 }

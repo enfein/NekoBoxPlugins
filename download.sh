@@ -135,8 +135,6 @@ download_mieru() {
 
   curl -Lso tmp.tar.gz "https://github.com/enfein/mieru/releases/download/${TAG}/mieru_${VERSION}_android_arm64.tar.gz"
   unzip_mieru arm64-v8a
-  curl -Lso tmp.tar.gz "https://github.com/enfein/mieru/releases/download/${TAG}/mieru_${VERSION}_android_amd64.tar.gz"
-  unzip_mieru x86_64
 }
 
 download_"$1"
