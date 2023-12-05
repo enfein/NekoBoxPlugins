@@ -26,6 +26,9 @@ jobs:
       - name: Release Build
         run: |
           export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
+          export KEYSTORE_PASS="${{ secrets.KEYSTORE_PASS }}"
+          export ALIAS_NAME="${{ secrets.ALIAS_NAME }}"
+          export ALIAS_PASS="${{ secrets.ALIAS_PASS }}"
           bash requirement.sh
           dl=1 bash make.sh ${{ github.event.inputs.plugin }}
           APK=$(find . -name '*arm64-v8a*.apk')
