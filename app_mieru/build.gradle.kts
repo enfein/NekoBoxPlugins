@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId = "moe.matsuri.exe.mieru"
         versionCode = 1
-        versionName = "2.2.0"
+        versionName = "3.35.0"
         splits.abi {
             reset()
             include("arm64-v8a")
